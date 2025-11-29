@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  background: linear-gradient(135deg, #050a9b, #8c4e15e1);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+.container {
+  background: #1e1e2f;
+  border-radius: 20px;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 30px 30px 40px;
+  box-shadow:
+    0 10px 20px rgba(0,0,0,0.3),
+    0 6px 6px rgba(0,0,0,0.2);
+  perspective: 1000px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  
+}
+
+form {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  background: #2a2a3d;
+  color: #eee;
+  box-shadow: inset 0 0 8px #444;
+}
+
+input[type="text"]:focus {
+  box-shadow: inset 0 0 12px #667eea;
+}
+
+button {
+  background: #667eea;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow:
+    0 5px 15px rgba(102, 126, 234, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow:
+    0 8px 20px rgba(102, 126, 234, 0.8);
+}
+
+ul.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.todo-list li {
+  background: #2a2a3d;
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  border-radius: 15px;
+  box-shadow:
+    0 8px 15px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: grab;
+  transform-style: preserve-3d;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease;
+ 
+}
+
+ul.todo-list li:active { cursor: grabbing; }
+
+ul.todo-list li:hover {
+  box-shadow:
+    0 15px 25px rgba(102, 126, 234, 0.7);
+  transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
+}
+
+ul.todo-list li.completed {
+  background: #3a3a4d;
+  text-decoration: line-through;
+  color: #999;
+  box-shadow: none;
+}
+
+ul.todo-list li .task-text {
+  flex-grow: 1;
+  font-size: 18px;
+  outline: none;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: text;
+ 
+}
+
+ul.todo-list li .task-text[contenteditable="true"] {
+  border-bottom: 1px dashed #667eea;
+}
+
+ul.todo-list li .actions {
+  display: flex;
+  gap: 12px;
+  margin-left: 15px;
+}
+
+ul.todo-list li button.action-btn {
+  background: transparent;
+  border: none;
+  color: #bbb;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+   
+}
+
+ul.todo-list li button.action-btn:hover { color: #667eea; }
+
+ 
+ul.todo-list li .checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 2px solid #667eea;
+  margin-right: 15px;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+ul.todo-list li.completed .checkbox {
+  background-color: #667eea;
+  border-color: #667eea;
+}
+
+ul.todo-list li .checkbox::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 7px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  opacity: 0;
+  transform: rotate(45deg);
+  transition: opacity 0.3s ease;
+}
+
+ul.todo-list li.completed .checkbox::after { opacity: 1; }
+
+ 
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px) translateZ(0); }
+  100% { opacity: 1; transform: translateY(0) translateZ(0); }
+}
+@keyframes fadeOutDown {
+  0% { opacity: 1; transform: translateY(0) translateZ(0); }
+  100% { opacity: 0; transform: translateY(20px) translateZ(0); }
+}
+.fade-in { animation: fadeInUp 0.4s ease forwards; }
+.fade-out { animation: fadeOutDown 0.4s ease forwards; }
+
+ 
+@media (max-width:1000px) {
+  .container { width: 100%; padding: 20px; }
+
+}
+
+.footer{
+  
+  margin-top:14px; color:var(--muted); font-size:0.9rem; text-align:center
+
+}
+
+a.footer-link{
+  color:var(--accent);
+  text-decoration:none;
+}
